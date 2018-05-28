@@ -1,0 +1,12 @@
+$color-list: (white: #fff, black: #000, dark-grey: #373737, yellow: #ffc600, ash: #e7e7e7, green: #389a6e);
+
+@each $value in $color-list {
+	.bg-color-#{nth($value, 1)},
+	%bg-color-#{nth($value, 1)} {
+		background-color: #{nth($value, 2)};
+	}
+	.color-#{nth($value, 1)},
+	%color-#{nth($value, 1)} {
+		color: #{nth($value, 2)};
+	}
+}

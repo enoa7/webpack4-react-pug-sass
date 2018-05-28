@@ -1,37 +1,30 @@
-var webpack = require('webpack');
+var webpack = require("webpack");
+
+// Is the current build a development build
+var IS_DEV = process.env.NODE_ENV === "dev";
 
 module.exports = {
-  entry: [
-    'react-hot-loader/patch',
-    './src/index.js'
-  ],
+  entry: ["react-hot-loader/patch", "./src/index.js"],
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
-      },
-      {
-        test: /.css$/,
-        exclude: /node_modules/,
-        use: ['style-loader', 'css-loader']
+        use: ["babel-loader"]
       }
     ]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ["*", ".js", ".jsx"]
   },
   output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
-    filename: 'bundle.js'
+    path: __dirname + "/dist",
+    publicPath: "/",
+    filename: "bundle.js"
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
-    contentBase: './dist',
+    contentBase: "./dist",
     hot: true
   }
-}
+};

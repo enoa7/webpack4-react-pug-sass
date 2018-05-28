@@ -1,8 +1,0 @@
-:root {
-	--yellow: yellow;
-	--black: black;
-}
-
-html {
-	background-color: var(--black);
-}
