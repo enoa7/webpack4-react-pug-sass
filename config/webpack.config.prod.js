@@ -1,8 +1,9 @@
 var merge = require("webpack-merge");
-var webpackConfig = require("../webpack.config");
+var webpackConfig = require("../webpack.config.js");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = merge(webpackConfig, {
+  mode: "production",
   devtool: "eval",
   module: {
     rules: [
@@ -16,5 +17,5 @@ module.exports = merge(webpackConfig, {
       }
     ]
   },
-  plugins: [new ExtractTextPlugin({ filename: "style.css" })]
+  plugins: [new ExtractTextPlugin({ filename: "app.css" })]
 });
