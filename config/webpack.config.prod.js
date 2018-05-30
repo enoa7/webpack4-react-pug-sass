@@ -14,7 +14,26 @@ module.exports = merge(webpackConfig, {
           fallback: "style-loader",
           use: ["css-loader", "sass-loader"]
         })
-      }
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: "file-loader",
+          options: {
+            name: "[name].[ext]",
+            context: "./src/img/"
+          }
+        }, {
+          loader: 'image-webpack-loader',
+          options: {
+            bypassOnDebug: true,
+            mozjpeg: {
+              progressive: false,
+              quality: 90
+            },
+          },
+        }
     ]
   },
   plugins: [new ExtractTextPlugin({ filename: "app.css" })]

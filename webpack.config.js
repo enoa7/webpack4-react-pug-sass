@@ -16,17 +16,6 @@ module.exports = {
         use: ["babel-loader"]
       },
       {
-        test: /\.(png|jpg|gif)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "file-loader",
-          options: {
-            name: "[name].[ext]",
-            context: "./src/img/"
-          }
-        }
-      },
-      {
         test: /\.pug$/,
         use: [
           {
